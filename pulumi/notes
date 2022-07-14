@@ -1,0 +1,1 @@
+civo kubernetes config acc-test-91b9c0e --save > ./kubeconfig.civo
