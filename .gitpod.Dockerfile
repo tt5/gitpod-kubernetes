@@ -30,4 +30,4 @@ RUN curl -fsSL https://get.pulumi.com | sh
 
 RUN echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc
 
-RUN echo 'alias k="kubectl"' >> /home/gitpod/.bashrc && \
+RUN echo 'alias k="kubectl"' >> /home/gitpod/.bashrc
