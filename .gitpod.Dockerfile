@@ -25,5 +25,8 @@ RUN wget https://github.com/mikefarah/yq/releases/download/v4.25.2/yq_linux_amd6
     chmod +x yq && \
     sudo mv ./yq /usr/local/bin/
 
-# Add aliases
-RUN echo 'alias k="kubectl"' >> /home/gitpod/.bashrc
+# pulumi
+RUN curl -fsSL https://get.pulumi.com | sh && \
+    echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc
+
+RUN echo 'alias k="kubectl"' >> /home/gitpod/.bashrc && \
