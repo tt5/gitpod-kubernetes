@@ -1,0 +1,8 @@
+tasks:
+  - init: |
+      sudo apt-get update
+      chmod +x *.sh
+      TF_VAR_civotoken="$CIVO_API_KEY"
+
+image:
+  file: .gitpod.Dockerfile
