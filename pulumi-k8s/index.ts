@@ -1,5 +1,6 @@
 import * as k8s from "@pulumi/kubernetes";
+import * as path from "path";
 
-const nginx = new k8s.yaml.ConfigFile("nginx", {
-	file: "nginx.yml",
+const manifests = new k8s.yaml.ConfigGroup("manifests", {
+	files: [ path.join("manifests", "*.yml") ],
 });
