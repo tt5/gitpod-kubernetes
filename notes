@@ -1,1 +1,2 @@
 pulumi new kubernetes-typescript -y
+pulumi stack select <stack-name>
