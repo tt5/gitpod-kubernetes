@@ -1,0 +1,8 @@
+./civosetup.sh
+cd pulumi
+npm i
+pulumi up -y -s cluster
+./setupkubectl.sh
+cd ../pulumi-k8s
+npm i
+pulumi up -y -s manifests
