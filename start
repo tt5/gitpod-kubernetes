@@ -6,3 +6,13 @@ pulumi up -y -s cluster
 cd ../pulumi-k8s
 npm i
 pulumi up -y -s manifests
+
+# ---
+
+pulumi down -y -s manifests
+cd ../pulumi
+pulumi down -y -s cluster
+
+# ---
+
+gp stop
