@@ -3,6 +3,8 @@ tasks:
       sudo apt-get update
       chmod +x *.sh
       TF_VAR_civotoken="$CIVO_API_KEY"
+      export GITHUB_USER="tt5"
+      export GITHUB_TOKEN="$FLUX_GH_TOKEN"
 
 image:
   file: .gitpod.Dockerfile
