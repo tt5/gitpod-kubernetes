@@ -28,6 +28,8 @@ RUN wget https://github.com/mikefarah/yq/releases/download/v4.25.2/yq_linux_amd6
 # pulumi
 RUN curl -fsSL https://get.pulumi.com | sh
 
-RUN echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc
+# flux
+RUN curl -s https://fluxcd.io/install.sh | sudo bash
 
-RUN echo 'alias k="kubectl"' >> /home/gitpod/.bashrc
+RUN echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc && \
+    echo 'alias k="kubectl"' >> /home/gitpod/.bashrc
