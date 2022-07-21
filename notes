@@ -1,2 +1,27 @@
 pulumi new kubernetes-typescript -y
 pulumi stack select <stack-name>
+\nexport KUBECONFIG=/workspace/gitpod-kubernetes/.kube/config
+civo kubernetes config gitpod-test2 > .kube/config
+
+flux bootstrap github \
+  --owner=$GITHUB_USER \
+  --repository=fleet-infra \
+  --branch=main \
+  --path=./clusters/my-cluster \
+  --personal
+          DNS A record : e25905be-fd85-4059-b948-8258536c8b5f.k8s.civo.com
+
+
+flux create source git podinfo \
+  --url=$URL \
+  --branch=main \
+  --interval=30s \
+  --export > ./clusters/my-cluster/podinfo-source.yaml
+
+flux create kustomization podinfo \
+  --target-namespace=default \
+  --source=podinfo \
+  --path="./kustomize" \
+  --prune=true \
+  --interval=5m \
+  --export > ./clusters/my-cluster/podinfo-kustomization.yaml
