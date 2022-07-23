@@ -1,7 +1,7 @@
 pulumi new kubernetes-typescript -y
 pulumi stack select <stack-name>
-\nexport KUBECONFIG=/workspace/gitpod-kubernetes/.kube/config
-civo kubernetes config gitpod-test2 > .kube/config
+
+civo kubernetes config gitpod-test2 -s
 
 flux bootstrap github \
   --owner=$GITHUB_USER \
@@ -25,3 +25,4 @@ flux create kustomization podinfo \
   --prune=true \
   --interval=5m \
   --export > ./clusters/my-cluster/podinfo-kustomization.yaml
+k delete --all pods -n default
