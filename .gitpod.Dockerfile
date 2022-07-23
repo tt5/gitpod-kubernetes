@@ -36,4 +36,4 @@ RUN curl -s https://fluxcd.io/install.sh | sudo bash
 
 RUN echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc && \
     echo 'alias k="kubectl"' >> /home/gitpod/.bashrc && \
-    echo 'export PATH=$PATH:/workspace/gitpod-kubernets/istio-1.14.1/bin' >> /home/gitpod/.bashrc
+    echo 'export PATH=$PATH:$HOME/istio-1.14.1/bin' >> /home/gitpod/.bashrc
