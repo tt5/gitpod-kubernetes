@@ -26,4 +26,8 @@ flux create kustomization podinfo \
   --interval=5m \
   --export > ./clusters/my-cluster/podinfo-kustomization.yaml
 k delete --all pods -n default
-helm install prometheus-stack prometheus-community/kube-prometheus-stack
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+cd prom-stack
+helm install -f values.yaml prom-stack prometheus-community/kube-prometheus-stack -n prom-stack

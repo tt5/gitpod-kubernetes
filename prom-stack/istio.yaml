@@ -1,0 +1,44 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: grafana-gateway
+  namespace: prom-stack
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http-grafana
+      protocol: HTTP
+    hosts:
+    - "grafana.hello123.tk"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: grafana-vs
+  namespace: prom-stack
+spec:
+  hosts:
+  - "grafana.hello123.tk"
+  gateways:
+  - grafana-gateway
+  http:
+  - route:
+    - destination:
+        host: prom-stack-grafana.prom-stack.svc.cluster.local
+        port:
+          number: 3000
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: grafana
+  namespace: prom-stack
+spec:
+  host: prom-stack-grafana.prom-stack.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: DISABLE
+
