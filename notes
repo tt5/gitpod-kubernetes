@@ -26,3 +26,4 @@ flux create kustomization podinfo \
   --interval=5m \
   --export > ./clusters/my-cluster/podinfo-kustomization.yaml
 k delete --all pods -n default
+helm install prometheus-stack prometheus-community/kube-prometheus-stack
