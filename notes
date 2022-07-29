@@ -9,7 +9,6 @@ flux bootstrap github \
   --branch=main \
   --path=./clusters/my-cluster \
   --personal
-          DNS A record : e25905be-fd85-4059-b948-8258536c8b5f.k8s.civo.com
 
 
 flux create source git podinfo \
@@ -31,3 +30,4 @@ helm repo update
 
 cd prom-stack
 helm install -f values.yaml prom-stack prometheus-community/kube-prometheus-stack -n prom-stack
+flux create source git podinfo   --url=https://github.com/tt5/k8s-nginx   --branch=main   --interval=30s --export > ./fleet-infra/clusters/my-cluster/podinfo-source.yaml
