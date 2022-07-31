@@ -1,0 +1,1 @@
+curl --cacert ./ca.crt -v --resolve nginx.default.hello123.tk:443 :10.42.1.90  https://nginx.default.hello123.tk

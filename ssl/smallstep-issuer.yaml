@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: my-ca
+spec:
+  acme:
+    server: https://sized-betafish.ddd.ca.smallstep.com/acme/acme/directory
+    privateKeySecretRef:
+      name: my-ca-account-key
+    solvers:
+    - http01:
+        ingress:
+          class: nginx

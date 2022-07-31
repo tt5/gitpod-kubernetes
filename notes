@@ -31,3 +31,6 @@ helm repo update
 cd prom-stack
 helm install -f values.yaml prom-stack prometheus-community/kube-prometheus-stack -n prom-stack
 flux create source git podinfo   --url=https://github.com/tt5/k8s-nginx   --branch=main   --interval=30s --export > ./fleet-infra/clusters/my-cluster/podinfo-source.yaml
+curl -L -o kubectl-cert-manager.tar.gz https://github.com/jetstack/cert-manager/releases/latest/download/kubectl-cert_manager-linux-amd64.tar.gz
+tar xzf kubectl-cert-manager.tar.gz
+sudo mv ./kubectl-cert_manager /usr/local/bin/
