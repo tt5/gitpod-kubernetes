@@ -34,8 +34,8 @@ RUN curl -fsSL https://get.pulumi.com | sh
 # flux
 RUN curl -s https://fluxcd.io/install.sh | sudo bash
 
-RUN wget https://github.com/acorn-io/acorn/releases/download/v0.1.5/acorn-v0.1.5-linux-amd64.tar.gz &&
-    tar -zxvf acorn-v0.1.5-linux-amd64.tar.gz
+RUN wget https://github.com/acorn-io/acorn/releases/download/v0.1.5/acorn-v0.1.5-linux-amd64.tar.gz && \
+    tar -zxvf acorn-v0.1.5-linux-amd64.tar.gz && \
     sudo mv ./acorn /usr/local/bin/
 
 RUN echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc && \
