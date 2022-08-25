@@ -44,6 +44,10 @@ RUN wget https://github.com/GoogleContainerTools/kpt/releases/download/v1.0.0-be
     chmod +x kpt && \
     sudo mv ./kpt /usr/local/bin/
 
+RUN wget https://github.com/suborbital/subo/releases/download/v0.5.4/subo-v0.5.4-linux-amd64.tar.gz && \
+    tar xzvf subo-v0.5.4-lunux-amd64.tar.gz && \
+    sudo mv ./subo /usr/local/bin/
+
 RUN echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc && \
     echo 'alias k="kubectl"' >> /home/gitpod/.bashrc && \
     echo 'export PATH=$PATH:$HOME/istio-1.14.1/bin' >> /home/gitpod/.bashrc && \
