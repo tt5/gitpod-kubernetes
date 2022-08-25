@@ -40,6 +40,10 @@ RUN wget https://github.com/acorn-io/acorn/releases/download/v0.1.5/acorn-v0.1.5
 
 RUN curl -fsS https://packages.fluvio.io/v1/install.sh | bash
 
+RUN wget https://github.com/GoogleContainerTools/kpt/releases/download/v1.0.0-beta.18/kpt_linux_amd64 -O kpt && \
+    chmod +x kpt && \
+    sudo mv ./kpt /usr/local/bin/
+
 RUN echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc && \
     echo 'alias k="kubectl"' >> /home/gitpod/.bashrc && \
     echo 'export PATH=$PATH:$HOME/istio-1.14.1/bin' >> /home/gitpod/.bashrc && \
