@@ -42,5 +42,5 @@ RUN curl -fsS https://packages.fluvio.io/v1/install.sh | bash
 
 RUN echo 'export PATH=$PATH:$HOME/.pulumi/bin' >> /home/gitpod/.bashrc && \
     echo 'alias k="kubectl"' >> /home/gitpod/.bashrc && \
-    echo 'export PATH=$PATH:$HOME/istio-1.14.1/bin' >> /home/gitpod/.bashrc
+    echo 'export PATH=$PATH:$HOME/istio-1.14.1/bin' >> /home/gitpod/.bashrc && \
     echo 'export PATH="${HOME}/.fluvio/bin:${PATH}"' >> ~/.bashrc
