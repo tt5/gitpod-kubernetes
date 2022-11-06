@@ -36,4 +36,4 @@ RUN wget https://github.com/GoogleContainerTools/kpt/releases/download/v1.0.0-be
     chmod +x kpt && \
     sudo mv ./kpt /usr/local/bin/
 
-RUN echo 'alias k="kubectl"' >> /home/gitpod/.bashrc && \
+RUN echo 'alias k="kubectl"' >> /home/gitpod/.bashrc
