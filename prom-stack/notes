@@ -1,0 +1,2 @@
+helm upgrade -f new-values.yml {release name} {package name or path} --version {fixed-version}helm upgrade -f values.yaml --namespace prom-stack --install kube-stack-prometheus prometheus-community/kube-prometheus-stack
+helm upgrade -f values.yaml --namespace prom-stack --install kube-stack-prometheus prometheus-community/kube-prometheus-stack
